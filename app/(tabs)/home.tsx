@@ -1,7 +1,14 @@
 import React from 'react';
 import { View, StyleSheet, Text, FlatList, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { MaterialIcons, Ionicons, FontAwesome } from '@expo/vector-icons';
+import {
+    MaterialIcons,
+    Ionicons,
+    FontAwesome,
+    Feather
+} from '@expo/vector-icons';
+import {Button} from "react-native-paper";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 const HomeScreen = () => {
     const transactions = [
@@ -23,68 +30,86 @@ const HomeScreen = () => {
             </View>
 
             <View style={styles.subContainer}>
-                {/* Balance Section */}
-                <View style={styles.balanceCard}>
-                    <View style={styles.balanceRow}>
-                        <View style={styles.balanceItem}>
-                            <Text style={styles.balanceLabel}>Số Dư</Text>
-                            <Text style={styles.balanceValue}>$7,783.00</Text>
-                        </View>
-                        <View style={styles.balanceItem}>
-                            <Text style={styles.balanceLabel}>Chi Phí</Text>
-                            <Text style={[styles.balanceValue, { color: '#FF4444' }]}>-$1,187.40</Text>
-                        </View>
+                {/* Top Section */}
+                <View style={styles.topSection}>
+                    <View style={styles.iconSection}>
+                        <AntDesign name="car" size={50} color="#00cc66" />
+                        <Text style={styles.label}>Mục Tiêu{"\n"}Tiết Kiệm</Text>
                     </View>
-                    <View style={styles.progressBar}>
-                        <View style={styles.progressFill} />
-                    </View>
-                    <Text style={styles.progressGoal}>$20,000.00</Text>
-                </View>
-
-                {/* Goal Section */}
-                <View style={styles.goalCard}>
-                    <View style={styles.goalRow}>
-                        <FontAwesome name="car" size={32} color="#66ccff" />
-                        <View>
-                            <Text style={styles.goalTitle}>Mục Tiêu Tiết Kiệm</Text>
-                            <Text style={styles.goalSubtitle}>$4,000.00</Text>
-                        </View>
-                    </View>
-                    <View>
-                        <Text style={styles.revenueText}>Revenue Last Week</Text>
-                        <Text style={styles.revenueAmount}>$4,000.00</Text>
-                        <Text style={[styles.revenueAmount, { color: '#FF4444' }]}>Tiền ăn tuần trước: -$100.00</Text>
+                    <View style={styles.divider} />
+                    <View style={styles.statsSection}>
+                        <Text style={styles.statsLabel}>Revenue Last Week</Text>
+                        <Text style={styles.revenue}>$4,000.00</Text>
+                        <Text style={styles.statsLabel}>Tiền ăn tuần trước</Text>
+                        <Text style={styles.expenses}>-$100.00</Text>
                     </View>
                 </View>
 
-                {/* Tab Selector */}
-                <View style={styles.tabSelector}>
-                    <TouchableOpacity style={styles.tabButtonActive}>
-                        <Text style={styles.tabButtonText}>Ngày</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.tabButton}>
-                        <Text style={styles.tabButtonText}>Tuần</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.tabButton}>
-                        <Text style={styles.tabButtonText}>Tháng</Text>
-                    </TouchableOpacity>
+                {/* Tabs Section */}
+                <View style={styles.tabs}>
+                    <Button
+                        mode="contained"
+                        style={styles.tabButton}
+                        labelStyle={styles.tabLabel}
+                    >
+                        Ngày
+                    </Button>
+                    <Button
+                        mode="contained"
+                        style={styles.tabButton}
+                        labelStyle={styles.tabLabel}
+                    >
+                        Tuần
+                    </Button>
+                    <Button
+                        mode="contained"
+                        style={styles.tabButton}
+                        labelStyle={styles.tabLabel}
+                    >
+                        Tháng
+                    </Button>
                 </View>
 
                 {/* Transactions Section */}
-                <FlatList
-                    data={transactions}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => (
-                        <View style={styles.transactionItem}>
-                            <Ionicons name="wallet-outline" size={24} color="#66ccff" />
-                            <View style={styles.transactionDetails}>
-                                <Text style={styles.transactionCategory}>{item.category}</Text>
-                                <Text style={styles.transactionTime}>{item.time}</Text>
-                            </View>
-                            <Text style={[styles.transactionAmount, { color: item.color }]}>{item.amount}</Text>
+                <View style={styles.transactions}>
+                    <View style={styles.transactionItem}>
+                        <AntDesign name="wallet" size={30} color="#0066ff" />
+                        <View style={styles.transactionDetails}>
+                            <Text style={styles.transactionLabel}>Lương</Text>
+                            <Text style={styles.transactionDate}>
+                                18:27 - April 30
+                            </Text>
                         </View>
-                    )}
-                />
+                        <Text style={[styles.transactionAmount, styles.income]}>
+                            $4,000.00
+                        </Text>
+                    </View>
+                    <View style={styles.transactionItem}>
+                        <Feather name="shopping-cart" size={30} color="#0066ff" />
+                        <View style={styles.transactionDetails}>
+                            <Text style={styles.transactionLabel}>Tạp Hóa</Text>
+                            <Text style={styles.transactionDate}>
+                                17:00 - April 24
+                            </Text>
+                        </View>
+                        <Text style={[styles.transactionAmount, styles.expense]}>
+                            -$100.00
+                        </Text>
+                    </View>
+                    <View style={styles.transactionItem}>
+                        <AntDesign name="home" size={30} color="#0066ff" />
+                        <View style={styles.transactionDetails}>
+                            <Text style={styles.transactionLabel}>Thuê Nhà</Text>
+                            <Text style={styles.transactionDate}>
+                                8:30 - April 15
+                            </Text>
+                        </View>
+                        <Text style={[styles.transactionAmount, styles.expense]}>
+                            -$674.40
+                        </Text>
+                    </View>
+                </View>
+
             </View>
 
         </LinearGradient>
@@ -141,6 +166,47 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         padding: 20,
         marginBottom: 20,
+    },
+    topSection: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        backgroundColor: "#fff",
+        borderRadius: 20,
+        padding: 15,
+        elevation: 5,
+    },
+    iconSection: {
+        alignItems: "center",
+    },
+    label: {
+        fontSize: 16,
+        textAlign: "center",
+        color: "#0066ff",
+        marginTop: 10,
+    },
+    divider: {
+        height: "100%",
+        width: 1,
+        backgroundColor: "#ccc",
+        marginHorizontal: 10,
+    },
+    statsSection: {
+        alignItems: "flex-start",
+    },
+    statsLabel: {
+        fontSize: 14,
+        color: "#333",
+    },
+    revenue: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#00cc66",
+        marginVertical: 5,
+    },
+    tabLabel: {
+        fontSize: 14,
+        color: "#0066ff",
     },
     balanceRow: {
         flexDirection: 'row',
@@ -225,19 +291,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#ffffff',
     },
-    transactionItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 15,
-        backgroundColor: '#ffffff',
-        borderRadius: 16,
-        marginBottom: 10,
-    },
-    transactionDetails: {
-        flex: 1,
-        marginHorizontal: 10,
-    },
     transactionCategory: {
         fontSize: 16,
         fontWeight: 'bold',
@@ -245,10 +298,6 @@ const styles = StyleSheet.create({
     transactionTime: {
         fontSize: 12,
         color: '#888888',
-    },
-    transactionAmount: {
-        fontSize: 16,
-        fontWeight: 'bold',
     },
     bottomNavigation: {
         flexDirection: 'row',
@@ -262,6 +311,53 @@ const styles = StyleSheet.create({
         left: 20,
         right: 20,
     },
+    expense: {
+        color: "#ff3333",
+    },
+    transactionDetails: {
+        flex: 1,
+        marginHorizontal: 10,
+    },
+    expenses: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#ff3333",
+    },
+    tabs: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        marginVertical: 15,
+    },
+    transactionLabel: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#333",
+    },
+    transactionDate: {
+        fontSize: 12,
+        color: "#777",
+    },
+    transactionAmount: {
+        fontSize: 16,
+        fontWeight: "bold",
+    },
+    income: {
+        color: "#00cc66",
+    },
+    transactions: {
+        marginTop: 10,
+    },
+    transactionItem: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        backgroundColor: "#fff",
+        borderRadius: 20,
+        padding: 15,
+        marginBottom: 10,
+        elevation: 3,
+    },
+
 });
 
 export default HomeScreen;

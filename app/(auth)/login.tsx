@@ -73,14 +73,6 @@ const LoginScreen = () => {
                 </Button>
 
                 {/* Sign Up Button */}
-                <Button
-                    mode="outlined"
-                    onPress={() => console.log('Sign up pressed')}
-                    style={styles.signupButton}
-                    labelStyle={styles.signupButtonText}
-                >
-                    Đăng Ký
-                </Button>
 
                 {/* Biometric Login */}
                 <Text style={styles.biometricText}>Dùng vân tay để đăng
@@ -99,10 +91,13 @@ const LoginScreen = () => {
                 {/* Sign Up Link */}
                 <Text style={styles.registerText}>
                     Chưa có tài khoản?{' '}
-                    <Text style={styles.registerLink}
-                          onPress={() => console.log('Sign up now pressed')}>
-                        Đăng ký ngay
-                    </Text>
+                    <Link href="../(auth)/signup" asChild>
+                        <Text style={styles.registerLink}
+                              onPress={() => console.log('Sign up now pressed')}>
+                            Đăng ký ngay
+                        </Text>
+                    </Link>
+
                 </Text>
             </View>
         </LinearGradient>
