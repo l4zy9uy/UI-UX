@@ -61,7 +61,7 @@ Optional:
 
 1. **Start the Development Server**:
    ```bash
-   expo start
+   npx expo start --tunnel
    ```
 
 2. **Run on Emulator/Simulator**:
