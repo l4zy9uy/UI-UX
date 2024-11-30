@@ -3,6 +3,7 @@ import {View, StyleSheet, Image} from 'react-native';
 import {Text, TextInput, Button} from 'react-native-paper';
 import {LinearGradient} from 'expo-linear-gradient'; // For gradient background
 import AntDesign from '@expo/vector-icons/AntDesign';
+import {Link} from "expo-router";
 
 const LoginScreen = () => {
     return (
@@ -50,14 +51,16 @@ const LoginScreen = () => {
                 />
 
                 {/* Login Button */}
-                <Button
-                    mode="contained"
-                    onPress={() => console.log('Login pressed')}
-                    style={styles.loginButton}
-                    labelStyle={styles.loginButtonText}
-                >
-                    Đăng Nhập
-                </Button>
+                <Link href="../(tabs)/home" asChild>
+                    <Button
+                        mode="contained"
+                        onPress={() => console.log('Login pressed')}
+                        style={styles.loginButton}
+                        labelStyle={styles.loginButtonText}
+                    >
+                        Đăng Nhập
+                    </Button>
+                </Link>
 
                 {/* Forgot Password */}
                 <Button
