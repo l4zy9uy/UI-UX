@@ -6,96 +6,102 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 const LoginScreen = () => {
     return (
+
         <LinearGradient
             colors={['#66ccff', '#99ddff']}
-            style={styles.background}
-        >
-            <LinearGradient
-                colors={['#66ccff', '#99ddff']}
-                style={styles.container}>
-                <Text style={styles.greeting}>Xin Chào, Thành</Text>
-                {/* Greeting */}
-                <View style={styles.subContainer}>
+            style={styles.container}>
+            <Text style={styles.greeting}>Xin Chào, Thành</Text>
+            {/* Greeting */}
+            <View style={styles.subContainer}>
 
 
-                    {/* Username or Email Input */}
-                    <TextInput
-                        label="Tên đăng nhập hoặc Email"
-                        mode="flat"
-                        placeholder="example@example.com"
-                        style={styles.input}
-                        underlineColor="transparent"
-                        activeUnderlineColor="transparent"
-                        theme={{colors: {background: '#FFFFFF'}}}
-                    />
+                {/* Username or Email Input */}
+                <TextInput
+                    label="Tên đăng nhập hoặc Email"
+                    mode="outlined"
+                    placeholder="example@example.com"
+                    style={styles.input}
+                    underlineColor="transparent"
+                    activeUnderlineColor="transparent"
+                    theme={{
+                        roundness: 30,
+                        colors: {
+                            background: '#FFFFFF',
+                        },
+                    }}
+                />
 
-                    {/* Password Input */}
-                    <TextInput
-                        label="Mật Khẩu"
-                        mode="flat"
-                        placeholder="••••••••"
-                        secureTextEntry
-                        right={<TextInput.Icon icon="eye"/>}
-                        style={styles.input}
-                        underlineColor="transparent"
-                        activeUnderlineColor="transparent"
-                        theme={{colors: {background: '#FFFFFF'}}}
-                    />
+                {/* Password Input */}
+                <TextInput
+                    label="Mật Khẩu"
+                    mode="outlined"
+                    placeholder="••••••••"
+                    secureTextEntry
+                    right={<TextInput.Icon icon="eye"/>}
+                    style={styles.input}
+                    underlineColor="transparent"
+                    activeUnderlineColor="transparent"
+                    theme={{
+                        roundness: 30,
+                        colors: {
+                            background: '#FFFFFF'
+                        }
+                    }}
+                />
 
-                    {/* Login Button */}
-                    <Button
-                        mode="contained"
-                        onPress={() => console.log('Login pressed')}
-                        style={styles.loginButton}
-                        labelStyle={styles.loginButtonText}
-                    >
-                        Đăng Nhập
-                    </Button>
+                {/* Login Button */}
+                <Button
+                    mode="contained"
+                    onPress={() => console.log('Login pressed')}
+                    style={styles.loginButton}
+                    labelStyle={styles.loginButtonText}
+                >
+                    Đăng Nhập
+                </Button>
 
-                    {/* Forgot Password */}
-                    <Button
-                        mode="text"
-                        onPress={() => console.log('Forgot password pressed')}
-                        style={styles.forgotPassword}
-                        labelStyle={styles.forgotPasswordText}
-                    >
-                        Quên mật khẩu?
-                    </Button>
+                {/* Forgot Password */}
+                <Button
+                    mode="text"
+                    onPress={() => console.log('Forgot password pressed')}
+                    style={styles.forgotPassword}
+                    labelStyle={styles.forgotPasswordText}
+                >
+                    Quên mật khẩu?
+                </Button>
 
-                    {/* Sign Up Button */}
-                    <Button
-                        mode="outlined"
-                        onPress={() => console.log('Sign up pressed')}
-                        style={styles.signupButton}
-                        labelStyle={styles.signupButtonText}
-                    >
-                        Đăng Ký
-                    </Button>
+                {/* Sign Up Button */}
+                <Button
+                    mode="outlined"
+                    onPress={() => console.log('Sign up pressed')}
+                    style={styles.signupButton}
+                    labelStyle={styles.signupButtonText}
+                >
+                    Đăng Ký
+                </Button>
 
-                    {/* Biometric Login */}
-                    <Text style={styles.biometricText}>Dùng vân tay để đăng
-                        nhập</Text>
+                {/* Biometric Login */}
+                <Text style={styles.biometricText}>Dùng vân tay để đăng
+                    nhập</Text>
 
-                    {/* Social Login Section */}
-                    <Text style={styles.socialLoginText}>Hoặc đăng nhập
-                        với</Text>
-                    <View style={styles.socialIcons}>
-                        <AntDesign name="facebook-square" size={24}
-                                   color="black" style={styles.socialIcon}/>
-                        <AntDesign name="google" size={24} color="black"
-                                   style={styles.socialIcon}/>
-                    </View>
-
-                    {/* Sign Up Link */}
-                    <Text style={styles.registerText}>
-                        Chưa có tài khoản?{' '}
-                        <Text style={styles.registerLink}
-                              onPress={() => console.log('Sign up now pressed')}>
-                            Đăng ký ngay
-                        </Text>
-                    </Text>
+                {/* Social Login Section */}
+                <Text style={styles.socialLoginText}>Hoặc đăng nhập
+                    với</Text>
+                <View style={styles.socialIcons}>
+                    <AntDesign name="facebook-square" size={24}
+                               color="black" style={styles.socialIcon}/>
+                    <AntDesign name="google" size={24} color="black"
+                               style={styles.socialIcon}/>
                 </View>
-            </LinearGradient>
+
+                {/* Sign Up Link */}
+                <Text style={styles.registerText}>
+                    Chưa có tài khoản?{' '}
+                    <Text style={styles.registerLink}
+                          onPress={() => console.log('Sign up now pressed')}>
+                        Đăng ký ngay
+                    </Text>
+                </Text>
+            </View>
         </LinearGradient>
     );
 };
@@ -116,6 +122,7 @@ const styles = StyleSheet.create({
     },
     subContainer: {
         flex: 1,
+        width: '100%',
         borderTopStartRadius: 54,
         borderTopEndRadius: 54,
         marginTop: 80,
@@ -137,15 +144,15 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '100%',
+        height: 40,
         marginBottom: 15,
-        borderRadius: 36,
         backgroundColor: '#FFFFFF',
     },
     loginButton: {
         backgroundColor: '#0066ff',
         borderRadius: 25,
         paddingVertical: 10,
-        width: '100%',
+        width: '50%',
         marginTop: 15,
     },
     loginButtonText: {
@@ -165,7 +172,7 @@ const styles = StyleSheet.create({
         borderColor: '#0066ff',
         borderRadius: 25,
         paddingVertical: 10,
-        width: '100%',
+        width: '50%',
         marginTop: 10,
     },
     signupButtonText: {
