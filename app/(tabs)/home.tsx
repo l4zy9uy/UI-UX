@@ -9,6 +9,7 @@ const HomeScreen = () => {
         { id: '2', category: 'Tạp Hóa', time: '17:00 - April 24', type: 'Expense', amount: '-$100.00', color: '#FF4444' },
         { id: '3', category: 'Thuê Nhà', time: '8:30 - April 15', type: 'Expense', amount: '-$674.40', color: '#FF4444' },
     ];
+    console.log('Rendering Home Screen');
 
     return (
         <LinearGradient colors={['#66ccff', '#99ddff']} style={styles.container}>
