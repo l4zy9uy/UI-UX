@@ -35,6 +35,13 @@ export default function TabLayout() {
                     headerShown: false,
                 }}
             />
+            {/*<Tab.Screen name="Notification" component={NotificationScreen} />*/}
+            <Tabs.Screen
+                name="notification"
+                options={{
+                    headerShown: false,
+                }}
+            />
             <Tabs.Screen
                 name="profile"
                 options={{

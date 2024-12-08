@@ -117,10 +117,6 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        padding: 20,
-    },
     container: {
         flex: 1,
         justifyContent: 'center',
