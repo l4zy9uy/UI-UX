@@ -1,99 +1,118 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text, TextInput, Button } from 'react-native-paper';
-import { LinearGradient } from 'expo-linear-gradient'; // For gradient background
-import { Link } from 'expo-router';
+import {View, StyleSheet, KeyboardAvoidingView, Platform} from 'react-native';
+import {Text, TextInput, Button} from 'react-native-paper';
+import {LinearGradient} from 'expo-linear-gradient'; // For gradient background
+import {Link} from 'expo-router';
 
 const SignUpScreen = () => {
     return (
-        <LinearGradient
-            colors={['#66ccff', '#99ddff']}
-            style={styles.container}
+        <KeyboardAvoidingView
+            style={{flex: 1}}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
-            <Text style={styles.heading}>Tạo Tài Khoản</Text>
+            <LinearGradient
+                colors={['#2980b9', '#6dd5fa', '#ffffff']}
+                locations={[0, 0.3, 1]}
+                style={styles.container}
+            >
+                <Text style={styles.heading}>Tạo Tài Khoản</Text>
 
-            <View style={styles.subContainer}>
-                {/* Full Name Input */}
-                <TextInput
-                    label="Họ và Tên"
-                    mode="outlined"
-                    placeholder="Nguyễn Văn A"
-                    style={styles.input}
-                    underlineColor="transparent"
-                    activeUnderlineColor="transparent"
-                    theme={{
-                        roundness: 30,
-                        colors: { background: '#FFFFFF' },
-                    }}
-                />
+                <View style={styles.subContainer}>
+                    {/* Full Name Input */}
+                    <TextInput
+                        label="Họ và Tên"
+                        mode="outlined"
+                        placeholder="Nguyễn Văn A"
+                        style={styles.input}
+                        underlineColor="transparent"
+                        activeUnderlineColor="transparent"
+                        theme={{
+                            roundness: 30,
+                            colors: {
+                                background: '#FFFFFF',
+                                outline: '#ffffff',
 
-                {/* Email Input */}
-                <TextInput
-                    label="Email"
-                    mode="outlined"
-                    placeholder="example@example.com"
-                    style={styles.input}
-                    underlineColor="transparent"
-                    activeUnderlineColor="transparent"
-                    theme={{
-                        roundness: 30,
-                        colors: { background: '#FFFFFF' },
-                    }}
-                />
+                            },
+                        }}
+                    />
 
-                {/* Password Input */}
-                <TextInput
-                    label="Mật Khẩu"
-                    mode="outlined"
-                    placeholder="••••••••"
-                    secureTextEntry
-                    right={<TextInput.Icon icon="eye" />}
-                    style={styles.input}
-                    underlineColor="transparent"
-                    activeUnderlineColor="transparent"
-                    theme={{
-                        roundness: 30,
-                        colors: { background: '#FFFFFF' },
-                    }}
-                />
+                    {/* Email Input */}
+                    <TextInput
+                        label="Email"
+                        mode="outlined"
+                        placeholder="example@example.com"
+                        style={styles.input}
+                        underlineColor="transparent"
+                        activeUnderlineColor="transparent"
+                        theme={{
+                            roundness: 30,
+                            colors: {
+                                background: '#FFFFFF',
+                                outline: '#ffffff',
+                            },
+                        }}
+                    />
 
-                {/* Confirm Password Input */}
-                <TextInput
-                    label="Xác Nhận Mật Khẩu"
-                    mode="outlined"
-                    placeholder="••••••••"
-                    secureTextEntry
-                    right={<TextInput.Icon icon="eye" />}
-                    style={styles.input}
-                    underlineColor="transparent"
-                    activeUnderlineColor="transparent"
-                    theme={{
-                        roundness: 30,
-                        colors: { background: '#FFFFFF' },
-                    }}
-                />
+                    {/* Password Input */}
+                    <TextInput
+                        label="Mật Khẩu"
+                        mode="outlined"
+                        placeholder="••••••••"
+                        secureTextEntry
+                        right={<TextInput.Icon icon="eye"/>}
+                        style={styles.input}
+                        underlineColor="transparent"
+                        activeUnderlineColor="transparent"
+                        theme={{
+                            roundness: 30,
+                            colors: {
+                                background: '#FFFFFF',
+                                outline: '#ffffff',
+                            },
+                        }}
+                    />
 
-                {/* Sign Up Button */}
-                <Button
-                    mode="contained"
-                    onPress={() => console.log('Sign Up pressed')}
-                    style={styles.signUpButton}
-                    labelStyle={styles.signUpButtonText}
-                >
-                    Đăng Ký
-                </Button>
+                    {/* Confirm Password Input */}
+                    <TextInput
+                        label="Xác Nhận Mật Khẩu"
+                        mode="outlined"
+                        placeholder="••••••••"
+                        secureTextEntry
+                        right={<TextInput.Icon icon="eye"/>}
+                        style={styles.input}
+                        underlineColor="transparent"
+                        activeUnderlineColor="transparent"
+                        theme={{
+                            roundness: 30,
+                            colors: {
+                                background: '#FFFFFF',
+                                outline: '#ffffff',
+                            },
+                        }}
+                    />
 
-                {/* Navigate to Login */}
-                <View style={styles.loginLinkContainer}>
-                    <Text style={styles.loginText}>
-                        Đã có tài khoản?{' '}
-                        <Link href="../login" asChild>
-                            <Text style={styles.loginLink}>Đăng Nhập</Text>
-                        </Link>
-                    </Text>
+                    {/* Sign Up Button */}
+                    <Button
+                        mode="contained"
+                        onPress={() => console.log('Sign Up pressed')}
+                        style={styles.signUpButton}
+                        labelStyle={styles.signUpButtonText}
+                    >
+                        Đăng Ký
+                    </Button>
+
+                    {/* Navigate to Login */}
+                    <View style={styles.loginLinkContainer}>
+                        <Text style={styles.loginText}>
+                            Đã có tài khoản?{' '}
+                            <Link href="../login" asChild>
+                                <Text style={styles.loginLink}>Đăng Nhập</Text>
+                            </Link>
+                        </Text>
+                    </View>
                 </View>
-            </View>
-        </LinearGradient>
+            </LinearGradient>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -121,7 +140,7 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#333333',
+        color: '#ffffff',
         textAlign: 'center',
         marginTop: 20,
     },

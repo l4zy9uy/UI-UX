@@ -83,16 +83,11 @@ const CategoryScreen = () => {
         );
     };
 
+    // @ts-ignore
     return (
         <LinearGradient colors={['#66ccff', '#99ddff']} style={styles.container}>
             {/* Header Section */}
             <View style={styles.headerContainer}>
-                <Pressable
-                    onPress={() => navigation.navigate('notification')}
-                    style={styles.notiButton}
-                >
-                    <Feather name="bell" size={30} color="#fff" />
-                </Pressable>
                 <Text style={styles.headerTitle}>Categories</Text>
             </View>
 

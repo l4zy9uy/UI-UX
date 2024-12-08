@@ -36,6 +36,7 @@ const data = [
 ];
 
 const NotificationScreen = () => {
+    // @ts-ignore
     const renderNotificationItem = ({ item }) => (
         <View style={styles.notificationContainer}>
             <Ionicons name={item.icon} size={30} color="#0068ff" />
@@ -47,6 +48,7 @@ const NotificationScreen = () => {
         </View>
     );
 
+    // @ts-ignore
     const renderSection = ({ item }) => (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>{item.title}</Text>

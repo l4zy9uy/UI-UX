@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     subContainer: {
         flex: 1,
         width: '100%',
-        backgroundColor: '#E6F7FF',
+        backgroundColor: '#d1edff',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         padding: 20,

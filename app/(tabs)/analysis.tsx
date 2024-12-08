@@ -31,9 +31,7 @@ const AnalysisScreen = () => {
             style={styles.container}>
             {/* Header */}
             <View style={styles.header}>
-                <AntDesign name="arrowleft" size={24} color="white" />
                 <Text style={styles.headerTitle}>Thống Kê & Phân Tích</Text>
-                <Feather name="bell" size={24} color="white" />
             </View>
 
             {/* Content */}
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
     },
     header: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
         paddingVertical: 10,
