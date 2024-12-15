@@ -13,9 +13,11 @@ export const Container: React.FC<{ children: React.ReactNode }> = ({ children })
     );
 };
 
-export const SubContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    return <View style={styles.subContainer}>{children}</View>;
-};
+export const SubContainer = ({ children, height }) => (
+    <View style={[styles.subContainer, { height }]}>
+        {children}
+    </View>
+);
 
 const styles = StyleSheet.create({
     container: {
@@ -24,15 +26,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     subContainer: {
-        flex: 1,
         width: '100%',
-        backgroundColor: '#d1edff',
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        padding: 20,
+        backgroundColor: '#eef8ff',
+        borderTopStartRadius: 54,
+        borderTopEndRadius: 54,
+        alignItems: 'center',
+        // justifyContent: 'center',
         shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 5,
+        shadowOpacity: 0.2,
+        shadowRadius: 10,
         elevation: 10,
+        paddingTop: 20,
     },
 });

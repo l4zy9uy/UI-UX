@@ -10,9 +10,9 @@ export const icons: {
     notification: (props: { color?: string; size?: number }) => React.ReactNode;
     profile: (props: { color?: string; size?: number }) => React.ReactNode;
 } = {
-    home: (props) => <AntDesign name="home" size={26} {...props} />,
-    analysis: (props) => <AntDesign name="barschart" size={24} {...props} />,
-    transaction: (props) => <Entypo name="line-graph" size={24} {...props} />,
+    home: (props) => <AntDesign name="home" size={22} {...props} />,
+    analysis: (props) => <AntDesign name="barschart" size={22} {...props} />,
+    transaction: (props) => <Entypo name="line-graph" size={22} {...props} />,
     category: (props) => <Ionicons name="file-tray-stacked-outline" size={24} {...props} />,
     notification: (props) => <Ionicons name="notifications-outline" size={24} {...props} />,
     profile: (props) => <AntDesign name="setting" size={24} {...props} />,

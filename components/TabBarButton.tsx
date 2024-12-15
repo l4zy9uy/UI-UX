@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Pressable, StyleSheet, PressableProps, Text } from 'react-native';
-import { icons } from '../assets/icons';
+import { icons } from '@/assets/icons';
 
 interface TabBarButtonProps extends PressableProps {
     isFocused: boolean;
@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     activeIconContainer: {
-        backgroundColor: '#0891b2',
+        backgroundColor: '#0068ff',
+        borderRadius: 15,
     },
 });
 

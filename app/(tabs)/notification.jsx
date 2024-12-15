@@ -36,19 +36,23 @@ const data = [
 ];
 
 const NotificationScreen = () => {
-    // @ts-ignore
     const renderNotificationItem = ({ item }) => (
         <View style={styles.notificationContainer}>
-            <Ionicons name={item.icon} size={30} color="#0068ff" />
-            <View style={styles.notificationContent}>
+            {/* First Row: Icon and Title */}
+            <View style={styles.row}>
+                <Ionicons name={item.icon} size={30} color="#0068ff" style={styles.notificationIcon} />
                 <Text style={styles.notificationTitle}>{item.title}</Text>
-                <Text style={styles.notificationDescription}>{item.description}</Text>
             </View>
+
+            {/* Second Row: Description */}
+            <Text style={styles.notificationDescription}>{item.description}</Text>
+
+            {/* Third Row: Time */}
             <Text style={styles.notificationTime}>{item.time}</Text>
         </View>
     );
 
-    // @ts-ignore
+
     const renderSection = ({ item }) => (
         <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>{item.title}</Text>
@@ -61,12 +65,14 @@ const NotificationScreen = () => {
     );
 
     return (
-        <LinearGradient colors={['#66ccff', '#99ddff']} style={styles.container}>
+        <LinearGradient
+            colors={['#2980b9', '#6dd5fa', '#ffffff']}
+            locations={[0, 0.3, 1]}
+            style={styles.container}
+        >
             {/* Header */}
             <View style={styles.header}>
-                <Ionicons name="arrow-back" size={30} color="#fff" />
                 <Text style={styles.headerTitle}>Thông Báo</Text>
-                <Feather name="bell" size={30} color="#fff" />
             </View>
 
             {/* Notifications */}
@@ -88,10 +94,9 @@ const styles = StyleSheet.create({
     header: {
         height: 80,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 20,
-        backgroundColor: '#66ccff',
         borderBottomLeftRadius: 25,
         borderBottomRightRadius: 25,
     },
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f8fbff',
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         marginTop: -20,
@@ -118,29 +123,46 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     notificationContainer: {
+        paddingVertical: 15,
+        paddingHorizontal: 10,
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        marginBottom: 10,
+        shadowColor: '#000',
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 5, // Shadow for Android
+    },
+    row: {
         flexDirection: 'row',
         alignItems: 'center',
-        paddingVertical: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#f0f0f0',
+        marginBottom: 5,
     },
-    notificationContent: {
-        flex: 1,
-        marginLeft: 10,
+    notificationIcon: {
+        width: 40,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#e6f2ff',
+        borderRadius: 20,
+        textAlign: 'center',
+        marginRight: 10, // Space between icon and title
     },
     notificationTitle: {
         fontSize: 16,
         fontWeight: 'bold',
         color: '#333',
+        flex: 1, // Allow the title to take up the remaining space in the row
     },
     notificationDescription: {
         fontSize: 14,
         color: '#555',
-        marginTop: 5,
+        marginBottom: 5,
     },
     notificationTime: {
         fontSize: 12,
         color: '#999',
+        textAlign: 'right',
     },
 });
 
